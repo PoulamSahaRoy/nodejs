@@ -2,6 +2,9 @@ let express=require("express")
 let {dbConnection}=require("./database/db.js")
 let bodyParser=require("body-parser")
 let personRouter=require("./router/personRoutes.js")
+let dotEnv=require("dotenv")
+
+dotEnv.config()
 
 let app=express()
 
@@ -32,7 +35,7 @@ app.get("/user/:username/:id",(req,res,next)=>{
 
 
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT,()=>{
     console.log("server is on")
 })
 
